@@ -1,5 +1,5 @@
 Summary:	Curses client for Music Player Daemon
-Summary(pl):	Klient curses dla demona MPD
+Summary(pl.UTF-8):   Klient curses dla demona MPD
 Name:		ncmpc
 Version:	0.11.1
 Release:	1
@@ -22,12 +22,12 @@ controls this with an interface inspired by cplay. If ncmpc is used
 with lirc and irpty it can be used to manage playlists and control MPD
 with a remote control.
 
-%description -l pl
+%description -l pl.UTF-8
 ncmpc to klient curses dla demona MPD (Music Player Daemon). ncmpc
-³±czy siê z MPD dzia³aj±cym na maszynie w sieci lokalnej i steruje nim
-przy u¿yciu interfejsu zainspirowanego programem cplay. Je¶li ncmpc
-jest u¿ywany z lircem lub irpty, mo¿na go u¿ywaæ do zarz±dzania
-playlistami i sterowania MPD za pomoc± pilota.
+Å‚Ä…czy siÄ™ z MPD dziaÅ‚ajÄ…cym na maszynie w sieci lokalnej i steruje nim
+przy uÅ¼yciu interfejsu zainspirowanego programem cplay. JeÅ›li ncmpc
+jest uÅ¼ywany z lircem lub irpty, moÅ¼na go uÅ¼ywaÄ‡ do zarzÄ…dzania
+playlistami i sterowania MPD za pomocÄ… pilota.
 
 %prep
 %setup -q
