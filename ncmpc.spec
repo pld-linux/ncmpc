@@ -1,5 +1,5 @@
 Summary:	Curses client for Music Player Daemon
-Summary(pl.UTF-8):   Klient curses dla demona MPD
+Summary(pl.UTF-8):	Klient curses dla demona MPD
 Name:		ncmpc
 Version:	0.11.1
 Release:	1
