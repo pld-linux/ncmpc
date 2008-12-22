@@ -1,12 +1,12 @@
 Summary:	Curses client for Music Player Daemon
 Summary(pl.UTF-8):	Klient curses dla demona MPD
 Name:		ncmpc
-Version:	0.11.1
-Release:	2
+Version:	0.12
+Release:	1
 License:	GPL
 Group:		Applications/Sound
-Source0:	http://hem.bredband.net/kaw/ncmpc/files/%{name}-%{version}.tar.gz
-# Source0-md5:	c90668b12f3676c73913a863482ec405
+Source0:	http://dl.sourceforge.net/musicpd/%{name}-%{version}.tar.gz
+# Source0-md5:	8a7cff66c859d037bda735662313d4b0
 URL:		http://hem.bredband.net/kaw/ncmpc/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -35,7 +35,7 @@ playlistami i sterowania MPD za pomocą pilota.
 %build
 #%%{__gettextize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -59,6 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f ncmpc.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc AUTHORS NEWS README doc/*.sample doc/ncmpc.lirc
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
