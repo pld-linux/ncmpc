@@ -58,6 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f ncmpc.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README
+%doc AUTHORS NEWS README doc/*.sample doc/ncmpc.lirc
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%{_mandir}/man1/ncmpc.*
