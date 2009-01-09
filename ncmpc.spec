@@ -1,17 +1,17 @@
 Summary:	Curses client for Music Player Daemon
 Summary(pl.UTF-8):	Klient curses dla demona MPD
 Name:		ncmpc
-Version:	0.12
+Version:	0.13
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		Applications/Sound
-Source0:	http://dl.sourceforge.net/musicpd/%{name}-%{version}.tar.gz
-# Source0-md5:	8a7cff66c859d037bda735662313d4b0
+Source0:	http://dl.sourceforge.net/musicpd/%{name}-%{version}.tar.bz2
+# Source0-md5:	5ef1c45d62fad85b7d42ab5c9bcde33e
 URL:		http://hem.bredband.net/kaw/ncmpc/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel
+BuildRequires:	libtool
 BuildRequires:	ncurses-ext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,16 +24,15 @@ with a remote control.
 
 %description -l pl.UTF-8
 ncmpc to klient curses dla demona MPD (Music Player Daemon). ncmpc
-łączy się z MPD działającym na maszynie w sieci lokalnej i steruje nim
-przy użyciu interfejsu zainspirowanego programem cplay. Jeśli ncmpc
-jest używany z lircem lub irpty, można go używać do zarządzania
-playlistami i sterowania MPD za pomocą pilota.
+łączy się z MPD działającym na maszynie w sieci lokalnej i
+steruje nim przy użyciu interfejsu zainspirowanego programem cplay.
+Jeśli ncmpc jest używany z lircem lub irpty, można go używać do
+zarządzania playlistami i sterowania MPD za pomocą pilota.
 
 %prep
 %setup -q
 
 %build
-#%%{__gettextize}
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
@@ -59,6 +58,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f ncmpc.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README doc/*.sample doc/ncmpc.lirc
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
