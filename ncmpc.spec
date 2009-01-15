@@ -7,7 +7,7 @@ License:	GPL v2+
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/musicpd/%{name}-%{version}.tar.bz2
 # Source0-md5:	5ef1c45d62fad85b7d42ab5c9bcde33e
-URL:		http://hem.bredband.net/kaw/ncmpc/
+URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib2-devel
