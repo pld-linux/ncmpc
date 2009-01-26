@@ -13,6 +13,7 @@ BuildRequires:	automake
 BuildRequires:	glib2-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-ext-devel
+Suggests:	mpd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,10 +25,10 @@ with a remote control.
 
 %description -l pl.UTF-8
 ncmpc to klient curses dla demona MPD (Music Player Daemon). ncmpc
-łączy się z MPD działającym na maszynie w sieci lokalnej i
-steruje nim przy użyciu interfejsu zainspirowanego programem cplay.
-Jeśli ncmpc jest używany z lircem lub irpty, można go używać do
-zarządzania playlistami i sterowania MPD za pomocą pilota.
+łączy się z MPD działającym na maszynie w sieci lokalnej i steruje nim
+przy użyciu interfejsu zainspirowanego programem cplay. Jeśli ncmpc
+jest używany z lircem lub irpty, można go używać do zarządzania
+playlistami i sterowania MPD za pomocą pilota.
 
 %prep
 %setup -q
