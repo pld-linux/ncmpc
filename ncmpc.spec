@@ -10,10 +10,13 @@ Source0:	http://dl.sourceforge.net/musicpd/%{name}-%{version}.tar.bz2
 URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel
 BuildRequires:	libmpdclient-devel
 BuildRequires:	libtool
 BuildRequires:	ncurses-ext-devel
+BuildRequires:	pkgconfig
+BuildRequires:	rpm-pythonprov
 Suggests:	mpd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
