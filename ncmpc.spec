@@ -1,12 +1,12 @@
 Summary:	Curses client for Music Player Daemon
 Summary(pl.UTF-8):	Klient curses dla demona MPD
 Name:		ncmpc
-Version:	0.16
-Release:	2
+Version:	0.16.1
+Release:	1
 License:	GPL v2+
 Group:		Applications/Sound
-Source0:	http://dl.sourceforge.net/musicpd/%{name}-%{version}.tar.bz2
-# Source0-md5:	63b6bf666b6326c87abdea5f900a4fc3
+Source0:	http://downloads.sourceforge.net/musicpd/%{name}-%{version}.tar.bz2
+# Source0-md5:	f3e53a379bd0bc82d315aa111bfdd17a
 URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
 BuildRequires:	autoconf
 BuildRequires:	automake
