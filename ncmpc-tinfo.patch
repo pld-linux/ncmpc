@@ -1,0 +1,11 @@
+--- ncmpc-0.17/configure.ac~	2010-07-15 04:03:15.000000000 +0200
++++ ncmpc-0.17/configure.ac	2010-07-19 15:25:53.550308463 +0200
+@@ -98,7 +98,7 @@
+ 
+ AC_CHECK_LIB([$ncurses], 
+ 	     [initscr],
+-	     [LIBS="$LIBS -l$ncurses"], 
++	     [LIBS="$LIBS -l$ncurses -ltinfo"], 
+ 	     [AC_MSG_ERROR($ncurses library is required)])
+ 
+ if test "x$ncurses" = "xncursesw"; then
