@@ -1,23 +1,21 @@
 Summary:	Curses client for Music Player Daemon
 Summary(pl.UTF-8):	Klient curses dla demona MPD
 Name:		ncmpc
-Version:	0.18
-Release:	2
+Version:	0.24
+Release:	1
 License:	GPL v2+
 Group:		Applications/Sound
-Source0:	http://downloads.sourceforge.net/musicpd/%{name}-%{version}.tar.bz2
-# Source0-md5:	9f07e8289b710c7c41b3c80ba73fed76
-Patch0:		%{name}-tinfo.patch
+Source0:	http://www.musicpd.org/download/ncmpc/0/%{name}-%{version}.tar.xz
+# Source0-md5:	0717193f38446780372f2a8907316362
+Source1:	ax_require_defined.m4
 URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.60
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel
-BuildRequires:	libmpdclient-devel
-BuildRequires:	libtool
-BuildRequires:	ncurses-ext-devel
+BuildRequires:	glib2-devel >= 1:2.14
+BuildRequires:	libmpdclient-devel >= 2.5
+BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
-BuildRequires:	rpm-pythonprov
 Suggests:	mpd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,18 +35,27 @@ playlistami i sterowania MPD za pomocą pilota.
 
 %prep
 %setup -q
-%patch0 -p1
+%{__cp} %{SOURCE1} m4
 
 %build
-%{__libtoolize}
+%{__glib_gettextize}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 
 %configure \
-	CPPFLAGS="-I/usr/include/ncurses" \
+	--enable-artist-screen \
+	--enable-chat-screen \
+	--enable-colors \
+	--enable-help-screen \
+	--enable-key-screen \
+	--enable-locale \
 	--enable-lyrics-screen \
+	--enable-mouse \
+	--enable-outputs-screen \
+	--enable-search-screen \
+	--enable-song-screen \
 	--with-lyrics-plugin-dir=%{_libdir}/ncmpc/lyrics
 %{__make}
 
