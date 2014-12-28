@@ -11,7 +11,7 @@ Source1:	ax_require_defined.m4
 URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.14
 BuildRequires:	libmpdclient-devel >= 2.5
 BuildRequires:	ncurses-devel
