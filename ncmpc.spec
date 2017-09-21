@@ -1,21 +1,21 @@
 Summary:	Curses client for Music Player Daemon
 Summary(pl.UTF-8):	Klient curses dla demona MPD
 Name:		ncmpc
-Version:	0.27
+Version:	0.28
 Release:	1
 License:	GPL v2+
 Group:		Applications/Sound
 Source0:	http://www.musicpd.org/download/ncmpc/0/%{name}-%{version}.tar.xz
-# Source0-md5:	121c99645fa2ba6dc86db28a46944ebb
-Source1:	ax_require_defined.m4
+# Source0-md5:	1fdfb8b5d72434fb48ebc4fbc5ac89c7
 URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
-BuildRequires:	autoconf >= 2.60
-BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.30
 BuildRequires:	libmpdclient-devel >= 2.9
+BuildRequires:	meson
 BuildRequires:	ncurses-devel
+BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.725
 Requires:	glib2 >= 1:2.30
 Requires:	libmpdclient >= 2.9
 Suggests:	mpd
@@ -37,35 +37,27 @@ playlistami i sterowania MPD za pomocą pilota.
 
 %prep
 %setup -q
-%{__cp} %{SOURCE1} m4
 
 %build
-%{__glib_gettextize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-
-%configure \
-	--enable-artist-screen \
-	--enable-chat-screen \
-	--enable-colors \
-	--enable-help-screen \
-	--enable-key-screen \
-	--enable-locale \
-	--enable-lyrics-screen \
-	--enable-mouse \
-	--enable-outputs-screen \
-	--enable-search-screen \
-	--enable-song-screen \
-	--with-lyrics-plugin-dir=%{_libdir}/ncmpc/lyrics
-%{__make}
+%meson build \
+	-Dartist_screen=true \
+	-Dchat_screen=true \
+	-Dcolors=auto \
+	-Dhelp_screen=true \
+	-Dkey_screen=true \
+	-Dlocale=true \
+	-Dlyrics_screen=true \
+	-Dmouse=true \
+	-Doutputs_screen=true \
+	-Dsearch_screen=true \
+	-Dsong_screen=true \
+	-Dlirc=false
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+DESTDIR=$RPM_BUILD_ROOT \
+%ninja -C build install
 
 rm -rf $RPM_BUILD_ROOT%{_docdir}/%{name}
 
@@ -76,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f ncmpc.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README doc/*.sample doc/ncmpc.lirc
+%doc AUTHORS NEWS README.rst doc/*.sample doc/ncmpc.lirc
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/ncmpc
 %dir %{_libdir}/ncmpc/lyrics
