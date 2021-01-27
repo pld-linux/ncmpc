@@ -17,7 +17,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	ninja
 BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.727
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	sphinx-pdg
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -58,12 +58,12 @@ playlistami i sterowania MPD za pomocą pilota.
 	-Dsong_screen=true \
 	-Dlirc=disabled
 
-%meson_build -C build
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%meson_install -j1 -C build
+%ninja_install -j1 -C build
 
 rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
