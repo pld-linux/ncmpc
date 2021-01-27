@@ -19,6 +19,8 @@ BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.727
 BuildRequires:	sphinx-pdg
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	libmpdclient >= 2.17
 Suggests:	mpd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
