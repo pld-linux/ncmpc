@@ -1,17 +1,17 @@
 Summary:	Curses client for Music Player Daemon
 Summary(pl.UTF-8):	Klient curses dla demona MPD
 Name:		ncmpc
-Version:	0.42
+Version:	0.43
 Release:	1
 License:	GPL v2+
 Group:		Applications/Sound
 Source0:	http://www.musicpd.org/download/ncmpc/0/%{name}-%{version}.tar.xz
-# Source0-md5:	1e09882e89edf2e8e69f2fd1c3c312b1
+# Source0-md5:	addba97552fb7f769adfe3c7f92bc4ef
 URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
 BuildRequires:	boost-devel >= 1.62
 BuildRequires:	gcc-c++ >= 6:5
 BuildRequires:	gettext-tools
-BuildRequires:	libmpdclient-devel >= 2.9
+BuildRequires:	libmpdclient-devel >= 2.17
 BuildRequires:	meson >= 0.47
 BuildRequires:	ncurses-devel
 BuildRequires:	ninja
@@ -19,7 +19,7 @@ BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.727
 BuildRequires:	sphinx-pdg
-Requires:	libmpdclient >= 2.9
+Requires:	libmpdclient >= 2.17
 Suggests:	mpd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -64,6 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 %meson_install -j1 -C build
 
 rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}
+
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
 
 %find_lang ncmpc
 
