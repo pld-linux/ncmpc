@@ -5,7 +5,7 @@ Version:	0.45
 Release:	1
 License:	GPL v2+
 Group:		Applications/Sound
-Source0:	http://www.musicpd.org/download/ncmpc/0/%{name}-%{version}.tar.xz
+Source0:	https://www.musicpd.org/download/ncmpc/0/%{name}-%{version}.tar.xz
 # Source0-md5:	f0bdd820ff0c6c72ae220dd23accae1d
 URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
 BuildRequires:	boost-devel >= 1.62
