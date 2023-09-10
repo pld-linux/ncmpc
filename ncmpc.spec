@@ -10,7 +10,7 @@ Source0:	https://www.musicpd.org/download/ncmpc/0/%{name}-%{version}.tar.xz
 URL:		http://mpd.wikia.com/wiki/Client:Ncmpc
 BuildRequires:	gcc-c++ >= 6:8
 BuildRequires:	gettext-tools
-BuildRequires:	libmpdclient-devel >= 2.17
+BuildRequires:	libmpdclient-devel >= 2.18
 BuildRequires:	libstdc++-devel
 BuildRequires:	meson >= 0.49
 BuildRequires:	ncurses-devel
@@ -21,7 +21,7 @@ BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	sphinx-pdg
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	libmpdclient >= 2.17
+Requires:	libmpdclient >= 2.18
 Suggests:	mpd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
