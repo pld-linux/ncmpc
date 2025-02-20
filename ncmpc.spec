@@ -67,7 +67,7 @@ playlistami i sterowania MPD za pomocą pilota.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%meson_install -j1
+%meson_install
 
 rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
