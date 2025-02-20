@@ -18,7 +18,7 @@ BuildRequires:	ncurses-devel
 BuildRequires:	ninja
 BuildRequires:	pcre2-8-devel
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	sphinx-pdg
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -47,7 +47,7 @@ playlistami i sterowania MPD za pomocą pilota.
 %{__sed} -i -e '1 s,#!.*env python3,#!%{__python3},' lyrics/*.py
 
 %build
-%meson build \
+%meson \
 	-Dchat_screen=true \
 	-Dcolors=true \
 	-Ddocumentation=enabled \
@@ -62,12 +62,12 @@ playlistami i sterowania MPD za pomocą pilota.
 	-Dsong_screen=true \
 	-Dlirc=disabled
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -j1 -C build
+%meson_install -j1
 
 rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
